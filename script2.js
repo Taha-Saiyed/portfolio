@@ -32,7 +32,7 @@ const observerCallback = (entries, observer) => {
       percentageElements.forEach(curEl => {
         animatePercentage(curEl);
       });
-      document.querySelectorAll('.html, .css, .js, .java, .advjava,.Hibernate,.Spring,.Sql').forEach(bar => {
+      document.querySelectorAll('.html, .css, .js, .java, .advjava,.Hibernate,.Spring,.Sql,.Python,.Pandas,.NumPy,.Matplotlib,.AdvEXCEL').forEach(bar => {
         const percentage = bar.parentElement.previousElementSibling.querySelector('.percentage').dataset.percentage;
         bar.style.width = `${percentage}%`;
       });
