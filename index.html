@@ -45,11 +45,13 @@
   .gr{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .lead{color:var(--muted);max-width:560px}
 
-  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.92rem;cursor:pointer;transition:.3s;border:1px solid transparent;font-family:'Inter',sans-serif}
-  .btn-grad{background:var(--grad);color:#06121f;box-shadow:0 10px 30px rgba(110,139,255,.28)}
-  .btn-grad:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(110,139,255,.42)}
-  .btn-line{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02)}
-  .btn-line:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;
+    font-weight:600;font-size:.88rem;cursor:pointer;transition:.35s cubic-bezier(.2,.7,.2,1);
+    border:1px solid transparent;font-family:'Inter',sans-serif;white-space:nowrap;letter-spacing:.01em;}
+  .btn-grad{background:var(--grad);color:#06121f;box-shadow:0 8px 24px rgba(110,139,255,.28);}
+  .btn-grad:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(110,139,255,.42);}
+  .btn-line{border:1px solid rgba(255,255,255,.15);color:var(--text);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);}
+  .btn-line:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);background:rgba(110,139,255,.08);}
 
   /* NAV */
   header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;border-bottom:1px solid transparent}
@@ -329,6 +331,58 @@
   
   
   
+
+  .btn-li{background:rgba(10,102,194,.1);color:#5b9bd5;border:1px solid rgba(10,102,194,.3);
+    backdrop-filter:blur(8px);}
+  .btn-li:hover{background:#0a66c2;color:#fff;border-color:#0a66c2;transform:translateY(-3px);
+    box-shadow:0 10px 28px rgba(10,102,194,.35);}
+
+  .proj-footer{padding:14px 0 0;border-top:1px solid var(--line);margin-top:14px;display:flex;gap:10px;}
+  .proj-btn{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;
+    color:var(--accent-2);padding:7px 14px;border-radius:8px;border:1px solid rgba(34,211,238,.2);
+    background:rgba(34,211,238,.06);transition:.3s;font-family:'JetBrains Mono',monospace;}
+  .proj-btn:hover{background:rgba(34,211,238,.15);border-color:var(--accent-2);transform:translateY(-2px);}
+@media(max-width:480px){.hero-cta{flex-wrap:wrap;justify-content:center;}}
+
+  /* Button animations */
+  .btn{position:relative;overflow:hidden;}
+  .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+    opacity:0;transition:.35s;}
+  .btn:hover::after{opacity:1;}
+  
+  /* View Projects — shimmer sweep */
+  .btn-grad::before{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+    transition:none;}
+  .btn-grad:hover::before{left:150%;transition:left .5s ease;}
+  .btn-grad:active{transform:translateY(-1px) scale(.97);}
+
+  /* Download Resume — pulse ring */
+  .btn-line{position:relative;}
+  .btn-line:hover{box-shadow:0 0 0 3px rgba(110,139,255,.2);}
+  .btn-line:active{transform:translateY(-1px) scale(.97);}
+
+  /* LinkedIn — slide icon */
+  .btn-li svg{transition:transform .3s ease;}
+  .btn-li:hover svg{transform:rotate(-10deg) scale(1.2);}
+  .btn-li:active{transform:translateY(-1px) scale(.97);}
+
+  /* Entrance animation for buttons */
+  .hero-cta .btn{opacity:0;transform:translateY(16px);}
+  .hero-cta .btn:nth-child(1){animation:btn-in .6s ease .9s forwards;}
+  .hero-cta .btn:nth-child(2){animation:btn-in .6s ease 1.05s forwards;}
+  .hero-cta .btn:nth-child(3){animation:btn-in .6s ease 1.2s forwards;}
+  @keyframes btn-in{to{opacity:1;transform:translateY(0);}}
+
+  /* Floating back to top */
+  .float-top{position:fixed;bottom:28px;left:28px;width:44px;height:44px;border-radius:12px;
+    background:var(--surface);border:1px solid var(--line);color:var(--muted);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    opacity:0;pointer-events:none;transition:.35s cubic-bezier(.2,.7,.2,1);z-index:90;
+    box-shadow:0 8px 24px rgba(0,0,0,.3);}
+  .float-top.show{opacity:1;pointer-events:auto;}
+  .float-top:hover{background:var(--grad);color:#06121f;border-color:transparent;
+    transform:translateY(-4px);box-shadow:0 12px 28px rgba(110,139,255,.35);}
 </style>
 </head>
 <body>
@@ -360,6 +414,10 @@
       <div class="hero-cta">
         <a href="#projects" class="btn btn-grad">View Projects</a>
         <a href="TAHA_DATA_RESUME.pdf" class="btn btn-line" target="_blank" rel="noopener">Download Resume</a>
+        <a href="https://linkedin.com/in/muhammed-taha-saiyed" class="btn btn-li" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
       </div>
       <div class="hero-stats">
         <div class="hs"><div class="n" data-count="3" data-suf="+">0</div><div class="l">Years Experience</div></div>
@@ -400,9 +458,9 @@
           <div class="ac-label">Projects Delivered</div>
         </div>
         <div class="ac-card ac-2">
-          <div class="ac-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 8c0 2 1 3.5 2.5 4.5S9 14 9 16h6c0-2 .5-3 2-4s2.5-2.5 2.5-4.5C19.5 5 16 2 12 2z" stroke="url(#g2)" stroke-width="1.5" fill="none"/><path d="M9 16v2a3 3 0 006 0v-2" stroke="url(#g2)" stroke-width="1.5"/><line x1="12" y1="8" x2="12" y2="13" stroke="url(#g2)" stroke-width="1.5"/><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6e8bff"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs></svg></div>
-          <div class="ac-num" data-count="85" data-suf="%">0</div>
-          <div class="ac-label">ML Accuracy</div>
+          <div class="ac-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="url(#g2)" stroke-width="1.5"/><polyline points="12,6 12,12 16,14" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6e8bff"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs></svg></div>
+          <div class="ac-num" data-count="3" data-suf="+">0</div>
+          <div class="ac-label">Years Experience</div>
         </div>
         <div class="ac-card ac-3">
           <div class="ac-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="14" rx="1" stroke="url(#g3)" stroke-width="1.5"/><path d="M8 21V7l4-4 4 4v14" stroke="url(#g3)" stroke-width="1.5"/><rect x="9" y="13" width="2" height="3" fill="url(#g3)"/><rect x="13" y="13" width="2" height="3" fill="url(#g3)"/><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6e8bff"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs></svg></div>
@@ -457,7 +515,7 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" style="padding-top:60px;">
   <div class="wrap">
     <div class="sec-header reveal">
       <div class="sec-line"></div>
@@ -569,147 +627,155 @@
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <p>© <span id="year"></span> Muhammed Taha Khalid Saiyed</p>
-    <div class="socials">
-      <a href="https://linkedin.com/in/muhammed-taha-saiyed" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-      <a href="https://github.com/Taha-Saiyed" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
-      <a href="https://wa.me/919921981841" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#home" class="foot-logo">Port<b>folio</b></a>
+      <div class="socials">
+        <a href="https://linkedin.com/in/muhammed-taha-saiyed" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Taha-Saiyed" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </a>
+        <a href="https://wa.me/919921981841" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="year"></span> Muhammed Taha Khalid Saiyed · Built with passion 🚀</p>
+      <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+        Back to top
+      </button>
     </div>
   </div>
 </footer>
 
-<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
 
-<script>
-  var header=document.getElementById('header'),topBtn=document.getElementById('topBtn');
-  window.addEventListener('scroll',function(){var y=window.scrollY;header.classList.toggle('scrolled',y>30);topBtn.classList.toggle('show',y>500);});
-  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 
-  var burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
-  burger.addEventListener('click',function(){burger.classList.toggle('open');navLinks.classList.toggle('open');});
-  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');navLinks.classList.remove('open');});});
 
-  var roles=['Data Analyst','Power BI Developer','Data Scientist','SQL & Python'];
-  var te=document.getElementById('typed'),ri=0,ci=0,del=false;
-  (function type(){var w=roles[ri];te.textContent=w.slice(0,ci);
-    if(!del&&ci<w.length){ci++;setTimeout(type,95);}
-    else if(!del&&ci===w.length){del=true;setTimeout(type,1700);}
-    else if(del&&ci>0){ci--;setTimeout(type,45);}
-    else{del=false;ri=(ri+1)%roles.length;setTimeout(type,400);}})();
-
-  function countUp(el){
-    var target=parseFloat(el.dataset.count),suf=el.dataset.suf||'',cur=0,
-        step=Math.max(1,target/55);
-    var t=setInterval(function(){cur+=step;if(cur>=target){cur=target;clearInterval(t);}
-      el.textContent=Math.round(cur)+suf;},22);
-  }
-
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
-    e.target.classList.add('in');
-    e.target.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.dataset.w+'%';});
-    e.target.querySelectorAll('[data-count]').forEach(countUp);
-    if(e.target.dataset&&e.target.dataset.count)countUp(e.target);
-    io.unobserve(e.target);}});},{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  // hero stats count (not .reveal)
-  document.querySelectorAll('.hero-stats [data-count]').forEach(function(el){
-    var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(el);o.unobserve(el);}});});o.observe(el);});
-
-  document.getElementById('year').textContent=new Date().getFullYear();
-</script>
 
   <!-- particle background -->
-  <script>
-  (function(){
-    var cv=document.getElementById('hero-canvas');
-    if(!cv)return;
-    var ctx=cv.getContext('2d');
-    var mouse={x:null,y:null};
-    function resize(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;}
-    resize();
-    window.addEventListener('resize',resize);
-    cv.closest('section').addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
-    cv.closest('section').addEventListener('mouseleave',function(){mouse.x=null;mouse.y=null;});
-    var pts=[];
-    function init(){pts=[];var n=Math.min(80,Math.floor(cv.width/18));
-      for(var i=0;i<n;i++)pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45});}
-    init();window.addEventListener('resize',init);
-    function draw(){
-      ctx.clearRect(0,0,cv.width,cv.height);
-      for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;
-        if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;
-        ctx.fillStyle='rgba(110,139,255,0.7)';ctx.beginPath();ctx.arc(p.x,p.y,1.8,0,7);ctx.fill();}
-      for(var i=0;i<pts.length;i++){
-        for(var j=i+1;j<pts.length;j++){
-          var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<130){ctx.strokeStyle='rgba(110,139,255,'+(1-d/130)*.15+')';ctx.lineWidth=1;
-            ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}
-        if(mouse.x!=null){var mx=pts[i].x-mouse.x,my=pts[i].y-mouse.y,md=Math.sqrt(mx*mx+my*my);
-          if(md<160){ctx.strokeStyle='rgba(34,211,238,'+(1-md/160)*.4+')';ctx.lineWidth=1;
-            ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
-      }
+  
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+  // ---- NAV SCROLL ----
+  var header=document.getElementById('header');
+  window.addEventListener('scroll',function(){
+    header.classList.toggle('scrolled',window.scrollY>30);
+    var ft=document.getElementById('floatTop');if(ft)ft.classList.toggle('show',window.scrollY>400);
+  },{passive:true});
+
+  // ---- MOBILE MENU ----
+  var burger=document.getElementById('burger'),nav=document.getElementById('navLinks');
+  if(burger){
+    burger.addEventListener('click',function(){
+      burger.classList.toggle('open');nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){burger.classList.remove('open');nav.classList.remove('open');});
+    });
+  }
+
+  // ---- TYPING EFFECT ----
+  var roles=['Data Analyst','Power BI Developer','Data Scientist','SQL & Python Expert'];
+  var te=document.getElementById('typed');
+  if(te){
+    var ri=0,ci=0,del=false;
+    (function type(){
+      var w=roles[ri];te.textContent=w.slice(0,ci);
+      if(!del&&ci<w.length){ci++;setTimeout(type,90);}
+      else if(!del&&ci===w.length){del=true;setTimeout(type,1800);}
+      else if(del&&ci>0){ci--;setTimeout(type,45);}
+      else{del=false;ri=(ri+1)%roles.length;setTimeout(type,400);}
+    })();
+  }
+
+  // ---- PARTICLE CANVAS (throttled 24fps) ----
+  var cv=document.getElementById('hero-canvas');
+  if(cv){
+    var ctx=cv.getContext('2d'),mouse={x:null,y:null},last=0,pts=[];
+    function sz(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;}
+    sz();
+    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){sz();init();},250);},{passive:true});
+    var sec=cv.closest('section');
+    sec.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;},{passive:true});
+    sec.addEventListener('mouseleave',function(){mouse.x=null;mouse.y=null;});
+    function init(){pts=[];var n=Math.min(40,Math.floor(cv.width/26));
+      for(var i=0;i<n;i++)pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});}
+    init();
+    (function draw(ts){
       requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-  </script>
+      if(document.hidden||ts-last<42)return; // ~24fps
+      last=ts;
+      ctx.clearRect(0,0,cv.width,cv.height);
+      var i,j,p,dx,dy,d;
+      for(i=0;i<pts.length;i++){p=pts[i];p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;
+        ctx.fillStyle='rgba(110,139,255,.65)';ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,6.28);ctx.fill();}
+      ctx.lineWidth=.7;
+      for(i=0;i<pts.length;i++){
+        for(j=i+1;j<pts.length;j++){dx=pts[i].x-pts[j].x;dy=pts[i].y-pts[j].y;d=Math.sqrt(dx*dx+dy*dy);
+          if(d<110){ctx.strokeStyle='rgba(110,139,255,'+(1-d/110)*.1+')';ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}
+        if(mouse.x){dx=pts[i].x-mouse.x;dy=pts[i].y-mouse.y;d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){ctx.strokeStyle='rgba(34,211,238,'+(1-d/120)*.25+')';ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
+      }
+    })(0);
+  }
 
-
-  <script>
-  // about cards stagger animation
-  (function(){
-    var cards = document.querySelectorAll('.ac-card');
-    if(!cards.length) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  // ---- UNIFIED INTERSECTION OBSERVER ----
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;
+      el.classList.add('in','visible','vis','ci-vis','cc-vis','in-view');
+      // skill bars
+      el.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.dataset.w+'%';});
+      // count up
+      el.querySelectorAll('[data-count]').forEach(function(c){
+        var target=parseInt(c.dataset.count),suf=c.dataset.suf||'',cur=0,step=Math.max(1,target/50);
+        var t=setInterval(function(){cur+=step;if(cur>=target){cur=target;clearInterval(t);}c.textContent=Math.round(cur)+suf;},20);
       });
-    },{threshold:.2});
-    cards.forEach(function(c){ io.observe(c); });
-  })();
-  </script>
+      // about section text
+      if(el.classList.contains('about-eyebrow')||el.classList.contains('about-title')||
+         el.classList.contains('about-p1')||el.classList.contains('about-p2')){
+        document.querySelectorAll('.about-eyebrow,.about-title,.about-p1,.about-highlight,.about-p2')
+          .forEach(function(x){x.classList.add('vis');});
+      }
+      io.unobserve(el);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 
-  <script>
-  // about section trigger
-  (function(){
-    var targets = [
-      {el: document.querySelector('.about-eyebrow'), cls: 'vis'},
-      {el: document.querySelector('.about-title'), cls: 'vis'},
-      {el: document.querySelector('.about-p1'), cls: 'vis'},
-      {el: document.querySelector('.about-highlight'), cls: 'vis'},
-      {el: document.querySelector('.about-p2'), cls: 'vis'},
-    ];
-    targets = targets.filter(function(t){return t.el;});
-    if(!targets.length) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          targets.forEach(function(t){ t.el.classList.add(t.cls); });
-          io.disconnect();
-        }
-      });
-    },{threshold:.15});
-    io.observe(targets[0].el);
-  })();
-  </script>
+  // Observe all animated elements
+  document.querySelectorAll('.reveal,.ac-card,.ci .row,.cc,.about-eyebrow,.about-title,.about-p1,.about-highlight,.about-p2,[data-count]')
+    .forEach(function(el){io.observe(el);});
 
-  <script>
-  (function(){
-    var rows = document.querySelectorAll('.ci .row');
-    var cc = document.querySelector('.cc');
-    if(!rows.length) return;
-    var io = new IntersectionObserver(function(e){
-      e.forEach(function(en){
-        if(en.isIntersecting){
-          rows.forEach(function(r){ r.classList.add('ci-vis'); });
-          if(cc) cc.classList.add('cc-vis');
-          io.disconnect();
-        }
-      });
-    },{threshold:.2});
-    io.observe(rows[0]);
-  })();
-  </script>
+  // Hero stats (above fold)
+  document.querySelectorAll('.hero-stats [data-count]').forEach(function(el){
+    var o=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){
+        var target=parseInt(el.dataset.count),suf=el.dataset.suf||'',cur=0,step=Math.max(1,target/50);
+        var t=setInterval(function(){cur+=step;if(cur>=target){cur=target;clearInterval(t);}el.textContent=Math.round(cur)+suf;},20);
+        o.unobserve(el);
+      }
+    });});
+    o.observe(el);
+  });
+
+  // Year
+  var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();
+})();
+</script>
+<button class="float-top" id="floatTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
 </body>
 </html>
