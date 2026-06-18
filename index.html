@@ -338,10 +338,14 @@
     box-shadow:0 10px 28px rgba(10,102,194,.35);}
 
   .proj-footer{padding:14px 0 0;border-top:1px solid var(--line);margin-top:14px;display:flex;gap:10px;}
-  .proj-btn{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;
-    color:var(--accent-2);padding:7px 14px;border-radius:8px;border:1px solid rgba(34,211,238,.2);
-    background:rgba(34,211,238,.06);transition:.3s;font-family:'JetBrains Mono',monospace;}
-  .proj-btn:hover{background:rgba(34,211,238,.15);border-color:var(--accent-2);transform:translateY(-2px);}
+  .proj-btn{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:500;
+    color:var(--accent-2);padding:4px 10px;border-radius:6px;
+    border:1px solid rgba(34,211,238,.3);
+    background:rgba(34,211,238,.06);
+    box-shadow:0 0 8px rgba(34,211,238,.15);
+    transition:.35s;font-family:'JetBrains Mono',monospace;}
+  .proj-btn:hover{background:rgba(34,211,238,.14);border-color:var(--accent-2);
+    transform:translateY(-2px);box-shadow:0 0 16px rgba(34,211,238,.4);}
 @media(max-width:480px){.hero-cta{flex-wrap:wrap;justify-content:center;}}
 
   /* Button animations */
@@ -375,7 +379,7 @@
   @keyframes btn-in{to{opacity:1;transform:translateY(0);}}
 
   /* Floating back to top */
-  .float-top{position:fixed;bottom:28px;left:28px;width:44px;height:44px;border-radius:12px;
+  .float-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:12px;
     background:var(--surface);border:1px solid var(--line);color:var(--muted);
     display:flex;align-items:center;justify-content:center;cursor:pointer;
     opacity:0;pointer-events:none;transition:.35s cubic-bezier(.2,.7,.2,1);z-index:90;
@@ -548,51 +552,104 @@
     </div>
     <div class="proj-grid">
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/employee_performance.jpeg" alt="Employee Performance Dashboard"></div>
-        <div class="body"><div class="proj-num">01</div><h3>Employee Performance</h3><p>Interactive Power BI dashboard tracking submissions, contribution and performance across owners and age groups.</p>
-        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Excel</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/sample.jpg" alt="Sample Report Dashboard"></div>
+        <div class="body"><div class="proj-num">01</div><h3>Sample Report — Job & Industry</h3>
+        <p>Power BI dashboard covering job level distribution, industry breakdown, and city/state-level geographic mapping across India with interactive department filters.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">Maps</span><span class="ptag">HR Analytics</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_raw-data-can-be-overwhelming-clean-design-activity-7472922235423485952-F3pB/" class="proj-btn" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div>
+        </div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/sales.jpeg" alt="Sales Report Dashboard"></div>
-        <div class="body"><div class="proj-num">02</div><h3>Sales Report</h3><p>End-to-end sales analytics — profit by category, region and segment — with KPIs and trend analysis.</p>
-        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/beauty_data.jpg" alt="Beauty Data 2026 Report"></div>
+        <div class="body"><div class="proj-num">02</div><h3>Beauty Data — 2026 Report</h3>
+        <p>Multi-page Power BI report analyzing beauty industry data — top client sales, product lines, department-wise distribution and global regional mapping for 7300+ records.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Retail Analytics</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_turning-raw-data-into-retail-strategy-activity-7472553782988398593-0LOg/" class="proj-btn" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div>
+        </div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/quickhr.jpeg" alt="Quick HR Analytics"></div>
-        <div class="body"><div class="proj-num">03</div><h3>Quick HR Analytics</h3><p>HR dashboard covering leave balance, education-vs-salary and headcount by quarter for quick people insights.</p>
-        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">HR Analytics</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/general_report.jpg" alt="General Report Dashboard"></div>
+        <div class="body"><div class="proj-num">03</div><h3>General Report — World Sales</h3>
+        <p>Power BI dashboard visualizing global world sales data with regional breakdowns, bar charts and an interactive 3D globe map for multi-level analysis.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Global Maps</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_turning-global-data-chaos-into-clarity-activity-7472543553273974785-xq5w/" class="proj-btn" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div>
+        </div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/swiggy.jpeg" alt="Swiggy Data Analysis"></div>
-        <div class="body"><div class="proj-num">04</div><h3>Swiggy Data Analysis</h3><p>Multi-page Power BI report on restaurant pricing and ratings — average price by city, food type and more.</p>
-        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">Python</span><span class="ptag">Multi-page</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/car_sales_data.jpg" alt="Car Sales Data 2025"></div>
+        <div class="body"><div class="proj-num">04</div><h3>Car Sales Data 2025</h3>
+        <p>Multi-page Power BI dashboard analyzing global car sales — national campaign distribution, top-selling models, lead conversion status, and sales team performance across regions.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">Sales Analytics</span><span class="ptag">DAX</span><span class="ptag">Global Maps</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_dataanalytics-powerbi-datacleaning-share-7471821441127272448-Mack/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div>
+        </div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/gym.jpeg" alt="Muscle Mafia Gym App"></div>
-        <div class="body"><div class="proj-num">05</div><h3>Muscle Mafia — Gym App</h3><p>A mobile gym app built with Flutter (Dart &amp; Java): workout guides by muscle group plus a BMI calculator.</p>
-        <div class="ptags"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Java</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/2025overview.jpg" alt="2025 Report Overview"></div>
+        <div class="body"><div class="proj-num">05</div><h3>2025 Report Overview</h3>
+        <p>Interactive Power BI dashboard covering workforce distribution by job title, employee count by department, and global regional mapping for 2025 data insights.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Data Cleaning</span><span class="ptag">Maps</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_data-is-messy-science-makes-it-clean-share-7472524966853406720-LbBp/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div>
+        </div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/ims.png" alt="Intelli Market Solutions Website"></div>
-        <div class="body"><div class="proj-num">06</div><h3>Intelli Market Website</h3><p>Responsive corporate website built and delivered for Intelli Market Solutions across desktop, tablet and mobile.</p>
-        <div class="ptags"><span class="ptag">Web Dev</span><span class="ptag">Design</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/Portfolio.jpg" alt="Al Hayat Website"></div>
+        <div class="body"><div class="proj-num">06</div><h3>Al Hayat — Skincare</h3><p>Product website and brand graphics for a skincare line, focused on clean layout and enquiry conversion.</p>
+        <div class="ptags"><span class="ptag">Web Design</span><span class="ptag">Graphics</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/in/muhammed-taha-saiyed/details/projects/" class="proj-btn" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
       </article>
 
       <article class="proj reveal">
         <div class="thumb"><img loading="lazy" src="images/Portfolio2.jpg" alt="Al Ahyaan Website"></div>
         <div class="body"><div class="proj-num">07</div><h3>Al Ahyaan — Attars</h3><p>E-commerce style website and graphics designed for a fragrance brand, with a premium gold-on-black look.</p>
-        <div class="ptags"><span class="ptag">Web Design</span><span class="ptag">Graphics</span></div></div>
+        <div class="ptags"><span class="ptag">Web Design</span><span class="ptag">Graphics</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/in/muhammed-taha-saiyed/details/projects/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
       </article>
 
       <article class="proj reveal">
-        <div class="thumb"><img loading="lazy" src="images/Portfolio.jpg" alt="Al Hayat Website"></div>
-        <div class="body"><div class="proj-num">08</div><h3>Al Hayat — Skincare</h3><p>Product website and brand graphics for a skincare line, focused on clean layout and enquiry conversion.</p>
-        <div class="ptags"><span class="ptag">Web Design</span><span class="ptag">Graphics</span></div></div>
+        <div class="thumb"><img loading="lazy" src="images/ims.png" alt="Intelli Market Solutions Website"></div>
+        <div class="body"><div class="proj-num">08</div><h3>Intelli Market Website</h3><p>Responsive corporate website built and delivered for Intelli Market Solutions across desktop, tablet and mobile.</p>
+        <div class="ptags"><span class="ptag">Web Dev</span><span class="ptag">Design</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/in/muhammed-taha-saiyed/details/projects/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="thumb"><img loading="lazy" src="images/gym.jpeg" alt="Muscle Mafia Gym App"></div>
+        <div class="body"><div class="proj-num">09</div><h3>Muscle Mafia — Gym App</h3><p>A mobile gym app built with Flutter (Dart &amp; Java): workout guides by muscle group plus a BMI calculator.</p>
+        <div class="ptags"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Java</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_celebrating-my-project-the-muscle-mafia-activity-7294973729820889088-J5T7/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="thumb"><img loading="lazy" src="images/swiggy.jpeg" alt="Swiggy Data Analysis"></div>
+        <div class="body"><div class="proj-num">10</div><h3>Swiggy Data Analysis</h3><p>Multi-page Power BI report on restaurant pricing and ratings — average price by city, food type and more.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">Python</span><span class="ptag">Multi-page</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_swiggy-data-analysis-project-power-bi-ugcPost-7346177737893576707-2izr/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="thumb"><img loading="lazy" src="images/quickhr.jpeg" alt="Quick HR Analytics"></div>
+        <div class="body"><div class="proj-num">11</div><h3>Quick HR Analytics</h3><p>HR dashboard covering leave balance, education-vs-salary and headcount by quarter for quick people insights.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">HR Analytics</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_quickhr-analytics-dashboard-power-bi-activity-7346183400426270722-XSiw/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="thumb"><img loading="lazy" src="images/sales.jpeg" alt="Sales Report Dashboard"></div>
+        <div class="body"><div class="proj-num">12</div><h3>Sales Report</h3><p>End-to-end sales analytics — profit by category, region and segment — with KPIs and trend analysis.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_sales-report-dashboard-power-bi-training-activity-7346176720435093506-Ltxq/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="thumb"><img loading="lazy" src="images/employee_performance.jpeg" alt="Employee Performance Dashboard"></div>
+        <div class="body"><div class="proj-num">13</div><h3>Employee Performance</h3><p>Interactive Power BI dashboard tracking submissions, contribution and performance across owners and age groups.</p>
+        <div class="ptags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Excel</span></div>
+        <div class="proj-footer"><a href="https://www.linkedin.com/posts/muhammed-taha-saiyed_employee-performance-dashboard-power-share-7346179029038735360-SS5y/" class="proj-btn" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> View on LinkedIn</a></div></div>
       </article>
     </div>
   </div>
